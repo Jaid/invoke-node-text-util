@@ -29,7 +29,7 @@ def process(text: str) -> list[str]:
   category='string',
   version='1.0.0',
 )
-class SplitByRegexInvocation(BaseInvocation):
+class SplitByWhitespaceInvocation(BaseInvocation):
   """Splits the given text on whitespace, returns a list of strings."""
 
   text: str = InputField(

@@ -36,7 +36,7 @@ def process(text: str) -> str:
   category='string',
   version='1.0.0',
 )
-class SplitByRegexInvocation(BaseInvocation):
+class SanitizeTextInvocation(BaseInvocation):
   """Removes leading and trailing whitespace and invisible characters from the given text, compresses consecutive whitespace characters into a single space"""
 
   text: str = InputField(

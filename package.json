@@ -1,0 +1,14 @@
+  {
+    "name": "invoke-node-text-util",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+      "openNodesFolder": "start $INVOKEAI_ROOT/nodes",
+      "link": "lnfs . $INVOKEAI_ROOT/nodes/invoke-node-text-util",
+      "makeVenv": "if [[ -d .venv ]]; then npm run reset; fi && $reposFolder/.fork/invoke-ai/.venv/Scripts/python -m venv .venv && .venv/Scripts/python -m pip --require-virtualenv --disable-pip-version-check install --upgrade pip && .venv/Scripts/pip --require-virtualenv --disable-pip-version-check install wheel && .venv/Scripts/pip --require-virtualenv --disable-pip-version-check install build",
+      "installInvokeSource": "if [[ -d temp/invokeWheel ]]; then rm --recursive --force temp/invokeWheel; fi && .venv/Scripts/python -m build --wheel --outdir temp/invokeWheel $reposFolder/.fork/invoke-ai && .venv/Scripts/pip --require-virtualenv --disable-pip-version-check install --upgrade --force-reinstall temp/invokeWheel/*.whl && rm --recursive --force temp/invokeWheel",
+      "cleanPythonCache": "rm --recursive --force __pycache__ **/__pycache__",
+      "resetVenv": "rm --recursive --force .venv"
+    },
+    "type": "module"
+  }

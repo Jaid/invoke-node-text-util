@@ -26,7 +26,6 @@ Temporary Items
 
 # VS Code, based on https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 .vscode/*
-!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
@@ -39,3 +38,7 @@ Temporary Items
 /out/
 /dist/
 /temp/
+
+# Python
+__pycache__/
+/.venv/

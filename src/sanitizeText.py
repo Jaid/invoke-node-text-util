@@ -9,13 +9,13 @@ from invokeai.app.invocations.baseinvocation import (
 from invokeai.app.invocations.primitives import StringOutput
 
 def isCharacterPrintable(c: str) -> bool:
-  category = unicodedata.category(c)
   if ord(c) == 0x200B: # Zero-width space
     return False
   if ord(c) == 0x200C: # Zero-width non-joiner
     return False
   if ord(c) == 0x200D: # Zero-width joiner
     return False
+  category = unicodedata.category(c)
   if category == 'Cc': # Control characters
     return False
   return True

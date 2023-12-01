@@ -7,10 +7,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import IntegerOutput
 
-def process(text: str) -> str:
-  hash = hashlib.sha256(text.encode('utf-8')).digest()
-  seed = int.from_bytes(hash[:4], 'big')
-  return seed
+from ...src.handler.stringToSeed import process
 
 @invocation(
   'jaid/invoke-node-text-util/stringToSeed',

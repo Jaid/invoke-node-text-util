@@ -7,12 +7,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import StringCollectionOutput
 
-expression = re.compile('\\s+')
-
-def process(text: str) -> list[str]:
-  text = text.strip()
-  split = re.split(expression, text)
-  return split
+from ...src.handler.splitByWhitespace import process
 
 @invocation(
   'jaid/invoke-node-text-util/splitByWhitespace',

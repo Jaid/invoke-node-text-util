@@ -1,5 +1,4 @@
-import re
-import unicodedata
+import functools
 
 from invokeai.app.invocations.baseinvocation import (
   BaseInvocation,
@@ -8,25 +7,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import StringOutput
 
-def isCharacterPrintable(c: str) -> bool:
-  if ord(c) == 0x200B: # Zero-width space
-    return False
-  if ord(c) == 0x200C: # Zero-width non-joiner
-    return False
-  if ord(c) == 0x200D: # Zero-width joiner
-    return False
-  category = unicodedata.category(c)
-  if category == 'Cc': # Control characters
-    return False
-  return True
-
-def process(text: str) -> str:
-  unicodeNormalizeCategory = 'NFKC'
-  text = text.strip()
-  text = re.sub('\\s+', ' ', text)
-  text = unicodedata.normalize(unicodeNormalizeCategory, text)
-  text = ''.join(filter(isCharacterPrintable, text))
-  return text
+from ...src.handler.sanitizeText import process
 
 @invocation(
   'jaid/invoke-node-text-util/sanitizeText',

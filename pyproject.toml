@@ -12,8 +12,14 @@ allow_multiline_dictionary_keys = true
 dedent_closing_brackets = true
 coalesce_brackets = true
 
-[build-system]
-requires = [
+[project]
+name = "invoke-node-text-util"
+version = "0.0.0"
+
+[project.optional-dependencies]
+dev = [
   "build",
   "wheel",
+  "setuptools",
+  "pytest"
 ]

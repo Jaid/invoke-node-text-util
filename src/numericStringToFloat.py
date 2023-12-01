@@ -15,8 +15,8 @@ def process(text: str) -> float:
   return number
 
 @invocation(
-  'jaid/invoke-node-text-util/percentToFloat',
-  title='Percent to Float',
+  'jaid/invoke-node-text-util/numericStringToFloat',
+  title='Numeric String to Float',
   tags=[
     'convert',
     'float',
@@ -31,7 +31,7 @@ def process(text: str) -> float:
   category='string',
   version='1.0.0',
 )
-class PercentToFloatInvocation(BaseInvocation):
+class NumericStringToFloatInvocation(BaseInvocation):
   """Converts a string to a float. If the input ends with a percent sign, it will be rescaled accordingly."""
   text: str = InputField(
     title='Text',

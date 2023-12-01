@@ -5,7 +5,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import FloatOutput
 
-from ...src.handler.numericStringToFloat import process
+from ..handler.numericStringToFloat import process
 
 @invocation(
   'jaid/invoke-node-text-util/numericStringToFloat',

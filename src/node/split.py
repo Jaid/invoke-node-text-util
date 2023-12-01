@@ -5,7 +5,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import StringCollectionOutput
 
-from ...src.handler.split import process
+from ..handler.split import process
 
 @invocation(
   'jaid/invoke-node-text-util/split',

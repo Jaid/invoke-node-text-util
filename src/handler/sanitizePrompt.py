@@ -1,6 +1,6 @@
 import functools
 
-from ...src.lib.sanitizeText import (
+from ..lib.sanitizeText import (
   compressWhitespace,
   normalizeUnicode,
   clearUnprintable,

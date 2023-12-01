@@ -1,12 +1,12 @@
 import functools
 
-from ...src.lib.sanitizeText import *
+from ..lib import sanitizeText
 
 def process(text: str) -> str:
   text = functools.reduce(lambda acc, fn: fn(acc), [
-    strip,
-    compressWhitespace,
-    normalizeUnicode,
-    clearUnprintable,
+    sanitizeText.strip,
+    sanitizeText.compressWhitespace,
+    sanitizeText.normalizeUnicode,
+    sanitizeText.clearUnprintable,
   ], text)
   return text

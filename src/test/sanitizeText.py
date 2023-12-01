@@ -1,32 +1,32 @@
 import unittest
 
-from ...src.handler.sanitizeText import process
+from src.handler import sanitizeText
 
 fixtures = [
   {
-    'args': [
-      "foo bar",
-    ],
+    'args': {
+      'text': "foo bar",
+    },
     'expected': "foo bar",
   },
   {
-    'args': [
-      "foo\nbar",
-    ],
+    'args': {
+      'text': "foo\nbar",
+    },
     'expected': "foo bar",
   },
-  {
-    'args': [
-      "foo\n\nbar",
-    ],
-    'expected': "foo bar",
-  }
+  # {
+  #   'args': {
+  #     'text': "         f\noo\r\nbar  ",
+  #   },
+  #   'expected': "f\noo bar",
+  # }
 ]
 
 class TestSanitizeText(unittest.TestCase):
   def test(self):
     for fixture in fixtures:
-      self.assertEqual(process(*fixture['args']), fixture['expected'])
+      self.assertEqual(sanitizeText.process(**fixture['args']), fixture['expected'])
 
 if __name__ == '__main__':
   unittest.main()

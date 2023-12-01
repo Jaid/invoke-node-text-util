@@ -7,7 +7,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import StringCollectionOutput
 
-from ...src.handler.splitByRegex import process
+from ..handler.splitByRegex import process
 
 @invocation(
   'jaid/invoke-node-text-util/splitByRegex',

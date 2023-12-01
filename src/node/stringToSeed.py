@@ -7,7 +7,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import IntegerOutput
 
-from ...src.handler.stringToSeed import process
+from ..handler.stringToSeed import process
 
 @invocation(
   'jaid/invoke-node-text-util/stringToSeed',

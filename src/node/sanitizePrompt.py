@@ -7,7 +7,7 @@ from invokeai.app.invocations.baseinvocation import (
 )
 from invokeai.app.invocations.primitives import StringOutput
 
-from ...src.handler.sanitizePrompt import process
+from ..handler.sanitizePrompt import process
 
 @invocation(
   'jaid/invoke-node-text-util/sanitizePrompt',

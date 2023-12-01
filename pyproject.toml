@@ -11,3 +11,6 @@ blank_lines_between_top_level_imports_and_variables = 1
 allow_multiline_dictionary_keys = true
 dedent_closing_brackets = true
 coalesce_brackets = true
+
+[tool.pytest.ini_options]
+testpaths = "test"

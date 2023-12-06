@@ -8,6 +8,8 @@ def isCharacterPrintable(c: str) -> bool:
     return False
   if ord(c) == 0x200D: # Zero-width joiner
     return False
+  if ord(c) == 0x000A: # Line feed
+    return True
   category = unicodedata.category(c)
   if category == 'Cc': # Control characters
     return False
@@ -17,8 +19,21 @@ def strip(text: str) -> str:
   text = text.strip()
   return text
 
+def stripLineEndings(text: str) -> str:
+  text = re.sub(r'([^\S\n]+)$', '', text)
+  return text
+
+def stripLineStarts(text: str) -> str:
+  text = re.sub(r'^([^\S\n]+)', '', text)
+  return text
+
+def normalizeLineEndings(text: str) -> str:
+  text = re.sub(r'\r\n', '\n', text)
+  text = re.sub(r'\r', '\n', text)
+  return text
+
 def compressWhitespace(text: str) -> str:
-  text = re.sub(r'\s+', ' ', text)
+  text = re.sub(r'[^\S\n]+', ' ', text)
   return text
 
 def normalizeUnicode(text: str, unicodeNormalizeCategory: str = 'NFKC') -> str:
@@ -31,6 +46,10 @@ def clearUnprintable(text: str) -> str:
 
 def compressCommas(text: str) -> str:
   text = re.sub(r"\s*,[\s,]*,\s*", ", ", text)
+  return text
+
+def trimBeforeCommas(text: str) -> str:
+  text = re.sub(r'\s+,', ',', text)
   return text
 
 def compressLines(text: str, joiner: str = " ") -> str:

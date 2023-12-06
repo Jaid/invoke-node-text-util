@@ -5,7 +5,7 @@ from src.handler import sanitizeText
 fixtures = [
   {
     'args': {
-      'text': "foo bar",
+      'text': "foo   bar",
     },
     'expected': "foo bar",
   },
@@ -13,20 +13,23 @@ fixtures = [
     'args': {
       'text': "foo\nbar",
     },
-    'expected': "foo bar",
+    'expected': "foo\nbar",
   },
-  # {
-  #   'args': {
-  #     'text': "         f\noo\r\nbar  ",
-  #   },
-  #   'expected': "f\noo bar",
-  # }
+  {
+    'args': {
+      'text': "         f\noo\r\nbar  ",
+    },
+    'expected': "f\noo\nbar",
+  }
 ]
 
 class TestSanitizeText(unittest.TestCase):
   def test(self):
     for fixture in fixtures:
-      self.assertEqual(sanitizeText.process(**fixture['args']), fixture['expected'])
+      input = fixture['args']
+      output = sanitizeText.process(**input)
+      expected = fixture['expected']
+      self.assertEqual(output, expected)
 
 if __name__ == '__main__':
   unittest.main()

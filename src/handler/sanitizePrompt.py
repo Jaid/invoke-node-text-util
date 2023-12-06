@@ -1,21 +1,18 @@
 import functools
 
-from ..lib.sanitizeText import (
-  compressWhitespace,
-  normalizeUnicode,
-  clearUnprintable,
-  strip,
-  compressCommas,
-  compressLines,
-)
+from ..lib import sanitizeText
 
 def process(text: str, commaOnLinebreak: bool) -> str:
   text = functools.reduce(lambda acc, fn: fn(acc), [
-    compressWhitespace,
-    normalizeUnicode,
-    clearUnprintable,
-    strip,
-    compressLines if commaOnLinebreak else functools.partial(compressLines, joiner=", "),
-    compressCommas,
+    sanitizeText.normalizeLineEndings,
+    functools.partial(sanitizeText.compressLines, joiner=", ") if commaOnLinebreak else sanitizeText.compressLines,
+    sanitizeText.compressWhitespace,
+    sanitizeText.normalizeUnicode,
+    sanitizeText.clearUnprintable,
+    sanitizeText.strip,
+    sanitizeText.stripLineEndings,
+    sanitizeText.stripLineStarts,
+    sanitizeText.compressCommas,
+    sanitizeText.trimBeforeCommas,
   ], text)
   return text

@@ -1,4 +1,5 @@
 from .src.node.numericStringToFloat import NumericStringToFloatInvocation
+from .src.node.resolveTextTemplate import ResolveTextTemplateDoubleInputInvocation, ResolveTextTemplateInvocation, ResolveTextTemplateQuadrupleInputInvocation, ResolveTextTemplateTripleInputInvocation
 from .src.node.sanitizePrompt import SanitizePromptInvocation
 from .src.node.sanitizeText import SanitizeTextInvocation
 from .src.node.split import SplitInvocation

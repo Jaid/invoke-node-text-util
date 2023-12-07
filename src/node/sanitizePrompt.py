@@ -9,7 +9,7 @@ from ..handler.sanitizePrompt import process
 
 @invocation(
   'jaid/invoke-node-text-util/sanitizePrompt',
-  title='Sanitize Text',
+  title='Sanitize Prompt',
   tags=[
     'clean',
     'normalize',
@@ -22,6 +22,8 @@ from ..handler.sanitizePrompt import process
     'trim',
     'whitespace',
     'prompt',
+    'line',
+    'single'
   ],
   category='string',
   version='1.0.0',

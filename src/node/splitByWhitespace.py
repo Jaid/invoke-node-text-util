@@ -1,5 +1,3 @@
-import re
-
 from invokeai.app.invocations.baseinvocation import (
   BaseInvocation,
   InputField,
